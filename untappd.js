@@ -17,14 +17,31 @@ class untappd {
     }
 
     async getFriends(username) {
+        const response = await fetch(this.apiGetFriends(username));
+        const data = await response.json();
+        return data.response;
+    }
+
+    async getAllFriends(username) {
+        let initialResponse = await this.getFriends(username);
+        let friends = initialResponse.items;
+
+        if (initialResponse.found > initialResponse.count) {
+            let offsetCount = initialResponse.count, toLoop = Math.ceil((initialResponse.found / initialResponse.count) - 1);
+            for (let i = 0; i < toLoop; i++) {
+                let response = await this.getFriends(username, (i + 1) * offsetCount);
+                friends.concat(response.items);
+            }
+        }
+
+        return friends;
+    }
+
+    async getAllFriendsProfiles(username) {
 
     }
 
-    async getFriendsProfiles(username) {
-
-    }
-
-    async getFriendsStats(username) {
+    async getAllFriendsStats(username) {
 
     }
 }
