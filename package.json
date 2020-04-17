@@ -1,0 +1,26 @@
+{
+  "name": "untappd-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "untappd.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sean12697/untappd-api.git"
+  },
+  "author": "Sean O'Mahoney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sean12697/untappd-api/issues"
+  },
+  "homepage": "https://github.com/Sean12697/untappd-api#readme",
+  "devDependencies": {
+    "mocha": "^7.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}
